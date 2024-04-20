@@ -1,5 +1,4 @@
 import Card from "./components/Card"
-import Navbar from "./components/Navbar"
 
 const topis =[
   {
@@ -25,7 +24,6 @@ function App() {
   return (
     <section className="w-screen h-max min-h-screen pb-10 bg-[#DDD3C9]/90 overflow-x-hidden overflow-y-auto max-w-full">
 
-      <Navbar/>
       <img className="w-screen " src="/1.jpeg"/>
       <div className="mt-2 flex flex-col items-center w-max mx-auto">
         <span className="text-gray-800 text-3xl font-bold self-start">Topics</span>
