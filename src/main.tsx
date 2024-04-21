@@ -7,7 +7,6 @@ import BinarySearch from './pages/BinarySearch.tsx'
 import LinkedList from './pages/LinkedList.tsx'
 import Stack from './pages/Stack.tsx'
 import TwoPointers from './pages/TwoPointers.tsx'
-import Navbar from './components/Navbar.tsx'
 
 const router = createBrowserRouter([
   {
@@ -34,7 +33,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Navbar/>
     <RouterProvider router={router} />
   </React.StrictMode>,
 )
