@@ -165,6 +165,79 @@ function searchRange(nums: number[], target: number): number[] {
         </code>
         </pre>
       </div>
+      {/*  */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 35. Search Insert Position</h2>
+        <h3 className="text-green-600 text-lg">Easy</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+          Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+<br /><br />
+You must write an algorithm with O(log n) runtime complexity.
+
+<br /><br />
+
+Example 1:
+<br />
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+<br /><br />
+Example 2:
+<br />
+Input: nums = [1,3,5,6], target = 2
+<br />
+Output: 1
+<br /><br />
+Example 3:
+<br />
+Input: nums = [1,3,5,6], target = 7
+<br />
+Output: 4
+<br /><br />
+
+Constraints:
+<br />
+1 {'<'}= nums.length {'<'}= 104
+<br/>
+-104 {'<'}= nums[i] {'<'}= 104
+<br/>
+nums contains distinct values sorted in ascending order.
+<br />
+-104 {'<'}= target {'<'}= 104
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`function searchInsert(nums: number[], target: number): number {
+
+    let low:number =0;
+    let high:number =nums.length-1;
+    let mid = Math.trunc(low+(high-low)/2);
+
+    while(low<=high){
+        if(nums[mid]===target){
+            return mid;
+        }else if(target>nums[mid]){
+            low=mid+1;
+        }else{
+            high=mid-1;
+        }
+        mid = Math.trunc(low+(high-low)/2);
+    } 
+    for(let i=0;i<nums.length;i++){
+        if(target>nums[i] && target<nums[i+1]){
+            return i+1;
+        }else if(target<nums[0]){
+            return 0;
+        }else if(target>nums[nums.length-1]){
+            return nums.length;
+        }
+        
+    }  
+};`}
+        </code>
+        </pre>
+      </div>
     </div>
     </section>
   );
