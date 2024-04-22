@@ -20,6 +20,7 @@ export default function BinarySearch() {
           Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
           <br /><br />
           You must write an algorithm with O(log n) runtime complexity.
+          
         </p>
         <h2 className="text-2xl">Solution :</h2>
         <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
@@ -100,6 +101,16 @@ Example 3:
 Input: nums = [], target = 0
 <br />
 Output: [-1,-1]
+<br /><br />
+          Constraints:
+<br />
+0 {'<'}= nums.length {'<'}= 105
+<br/>
+-109 {'<'}= nums[i] {'<'}= 109
+<br/>
+nums is a non-decreasing array.
+<br/>
+-109 {'<'}= target {'<'}= 109
         </p>
         <h2 className="text-2xl">Solution :</h2>
         <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
