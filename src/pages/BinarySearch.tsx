@@ -249,6 +249,70 @@ nums contains distinct values sorted in ascending order.
         </code>
         </pre>
       </div>
+      {/*  */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 69. Sqrt(x)</h2>
+        <h3 className="text-green-600 text-lg">Easy</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+          Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+<br />
+You must not use any built-in exponent function or operator.
+<br /><br />
+For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
+ 
+<br /><br />
+Example 1:
+<br />
+Input: x = 4
+<br />
+Output: 2
+<br />
+Explanation: The square root of 4 is 2, so we return 2.
+<br /><br />
+Example 2:
+<br />
+Input: x = 8
+<br />
+Output: 2
+<br />
+Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+<br /><br />
+ Constraints:
+<br />
+0 {'<'}= x {'<'}= 231 - 1
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`const binarySearch=(x:number):number=>{
+
+    let low:number = 0;
+    let high=x;
+    let mid = Math.trunc(low+ (high-low)/2);
+    let ans:number;
+    while(low<=high){
+        if(mid*mid==x){
+            return mid;
+        }
+        if((mid*mid)>x){
+            high=mid-1;
+        }else{
+            ans=mid;
+            low=mid+1;
+        }
+        mid = Math.trunc(low+ (high-low)/2);
+    }
+    return ans;
+}
+
+function mySqrt(x: number): number {
+    //Using Binary search
+    return binarySearch(x)
+};`}
+        </code>
+        </pre>
+      </div>
     </div>
     </section>
   );
