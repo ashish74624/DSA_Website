@@ -313,6 +313,105 @@ function mySqrt(x: number): number {
         </code>
         </pre>
       </div>
+      {/*  */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 81. Search in Rotated Sorted Array</h2>
+        <h3 className="text-yellow-600 text-lg">Medium</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+          There is an integer array nums sorted in non-decreasing order (not necessarily with distinct values).
+<br />
+Before being passed to your function, nums is rotated at an unknown pivot index k (0 {'<'}= k {'<'} nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,4,4,5,6,6,7] might be rotated at pivot index 5 and become [4,5,6,6,7,0,1,2,4,4].
+<br/>
+Given the array nums after the rotation and an integer target, return true if target is in nums, or false if it is not in nums.
+ <br/>
+You must decrease the overall operation steps as much as possible.
+
+ 
+<br/> <br />
+Example 1:
+<br/>
+Input: nums = [2,5,6,0,0,1,2], target = 0 <br />
+Output: true
+<br /><br />
+Example 2:
+<br />
+Input: nums = [2,5,6,0,0,1,2], target = 3 <br />
+Output: false
+ 
+<br /><br />
+Constraints:
+<br />
+1 {'<'}= nums.length {'<'}= 5000
+<br/>
+-104 {'<'}= nums[i] {'<'}= 104
+<br/>
+nums is guaranteed to be rotated at some pivot.
+<br/>
+-104 {'<'}= target {'<'}= 104
+ 
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`const Pivot=(arr: number[])=>{
+    let low=0;
+    let high:number = arr.length-1;
+    let mid:number = Math.trunc(low + (high-low)/2);
+    while(low<high){
+        if(arr[mid]==arr[high]){
+            high=mid-1
+        }
+        else if(arr[mid]>arr[high]){
+            low=mid+1;
+        }else if(arr[mid]<arr[high]){
+            high=mid;
+        }else{
+            if(arr[mid]===arr[high])//Duplicate
+            {
+                high--; 
+                //Eliminate the duplicate and reduce the search space 
+            }else{
+                high=mid;
+            }
+        }
+        mid=Math.trunc(low + (high-low)/2);
+    }
+    return low;
+}
+
+const binarySearch=(arr: number[], target: number,low:number,high:number):boolean=>{
+    let mid:number = Math.trunc(low + (high-low)/2);
+    while(low<=high){
+        if(arr[mid]===target){
+            return true;
+        }else if(target>arr[mid]){
+            low=mid+1;
+        }else{
+            high=mid-1;
+        }
+        mid=Math.trunc(low + (high-low)/2);
+    }
+    return false;
+}
+
+function search(nums: number[], target: number): boolean {
+
+    const arr = Array.from(new Set(nums));
+    let p =Pivot(arr);
+    // let ans=-1;
+    if(target ===arr[p]){
+        return true;
+    }
+    if(target>=arr[p] && target<=arr[arr.length-1]){
+        return binarySearch(arr,target,p,arr.length-1)
+    }else{
+        return binarySearch(arr,target,0,p-1);
+    }
+};`}
+        </code>
+        </pre>
+      </div>
     </div>
     </section>
   );
