@@ -481,6 +481,84 @@ nums is sorted and rotated between 1 and n times.
         </code>
         </pre>
       </div>
+      {/*  */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 154. Find Minimum in Rotated Sorted Array II</h2>
+        <h3 className="text-red-600 text-lg">Hard</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+          Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
+<br /><br />
+[4,5,6,7,0,1,2] if it was rotated 4 times.
+<br />
+[0,1,2,4,5,6,7] if it was rotated 7 times.
+<br /> <br />
+Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
+<br /> <br />
+Given the sorted rotated array nums that may contain duplicates, return the minimum element of this array.
+<br /> <br />
+You must write an algorithm that runs in O(log n) time.
+
+<br /><br /> 
+
+Example 1:
+<br />
+Input: nums = [3,4,5,1,2] <br />
+Output: 1 <br />
+Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+<br /><br />
+Example 2:
+<br />
+Input: nums = [4,5,6,7,0,1,2] <br />
+Output: 0 <br />
+Explanation: The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.
+<br /><br />
+Example 3:
+<br />
+Input: nums = [11,13,15,17] <br />
+Output: 11 <br />
+Explanation: The original array was [11,13,15,17] and it was rotated 4 times.  <br />
+ <br /><br />
+
+Constraints:
+<br />
+n == nums.length <br />
+1 {'<'}= n {'<'}= 5000 <br/>
+-5000 {'<'}= nums[i] {'<'}= 5000 <br/>
+All the integers of nums are unique. <br/>
+nums is sorted and rotated between 1 and n times.
+<br /><br />
+Follow up: This problem is similar to Find Minimum in Rotated Sorted Array, but nums may contain duplicates. Would this affect the runtime complexity? How and why?
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`function findMin(nums: number[]): number {
+    let n= nums.length;
+    let low=0;
+    let high=n-1;
+    let mid = Math.trunc(low+(high-low)/2);
+
+    while(low<high){
+        if(nums[mid]>nums[high]){
+            low=mid+1;
+        }else if(nums[mid]<nums[high]){
+            high = mid;
+        }else{
+            if(nums[mid]===nums[high]){
+                high--;
+            }else{
+                high=mid;
+            }
+        }
+        mid = Math.trunc(low+(high-low)/2);
+    }
+    return nums[low];
+};`}
+        </code>
+        </pre>
+      </div>
+      {/*  */}
     </div>
     </section>
   );
