@@ -559,6 +559,61 @@ Follow up: This problem is similar to Find Minimum in Rotated Sorted Array, but 
         </pre>
       </div>
       {/*  */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 162. Find Peak Element</h2>
+        <h3 className="text-yellow-600 text-lg">Medium</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+         A peak element is an element that is strictly greater than its neighbors.
+<br/>
+Given a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
+<br/>
+You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.
+<br/>
+You must write an algorithm that runs in O(log n) time.
+
+ <br/><br/>
+
+Example 1:
+<br/>
+Input: nums = [1,2,3,1] <br/>
+Output: 2 <br/>
+Explanation: 3 is a peak element and your function should return the index number 2.
+<br/><br/>
+Example 2:
+<br/>
+Input: nums = [1,2,1,3,5,6,4] <br/>
+Output: 5 <br/>
+Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
+ <br/><br/>
+
+Constraints:
+<br/>
+1 {'<'}= nums.length {'<'}= 1000 <br/>
+-231 {'<'}= nums[i] {'<'}= 231 - 1 <br/>
+nums[i] != nums[i + 1] for all valid i.
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`function findPeakElement(nums: number[]): number {
+    let low=0;
+    let high=nums.length-1;
+    let mid = Math.trunc(low + (high-low)/2);
+
+    while(low<high){
+        if(nums[mid]>nums[mid+1]){
+            high=mid;
+        }else{
+            low=mid+1;
+        }
+        mid = Math.trunc(low + (high-low)/2);
+    }
+    return low;
+};`}
+        </code>
+        </pre>
+      </div>
     </div>
     </section>
   );
