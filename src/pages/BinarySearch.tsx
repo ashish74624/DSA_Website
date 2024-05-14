@@ -614,6 +614,67 @@ nums[i] != nums[i + 1] for all valid i.
         </code>
         </pre>
       </div>
+      {/* */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 367. Valid Perfect Square</h2>
+        <h3 className="text-green-600 text-lg">Easy</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+         Given a positive integer num, return true if num is a perfect square or false otherwise.
+<br />
+A perfect square is an integer that is the square of an integer. In other words, it is the product of some integer with itself.
+<br />
+<br />
+You must not use any built-in library function, such as sqrt.
+<br />
+<br />
+
+Example 1:
+<br />
+
+Input: num = 16
+<br />
+Output: true
+<br />
+Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
+<br />
+<br />
+Example 2:
+<br />
+Input: num = 14 
+<br />
+Output: false
+<br />
+Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
+<br />
+<br />
+
+Constraints:
+<br />
+1 {'<'}= num {'<'}= 231 - 1
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`function isPerfectSquare(num: number): boolean {
+    let low=0;
+    let high=num;
+    let mid= Math.trunc(low+(high-low)/2);
+    while(low<=high){
+        if(mid*mid===num){
+            return true;
+        }else if((mid*mid)>num){
+            high=mid-1;
+        }else{
+            low=mid+1;
+        }
+        mid= Math.trunc(low+(high-low)/2);
+    }
+    return false;
+};`}
+        </code>
+        </pre>
+      </div>
     </div>
     </section>
   );
