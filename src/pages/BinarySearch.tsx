@@ -675,6 +675,96 @@ Constraints:
         </code>
         </pre>
       </div>
+      {/* */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 475. Heaters</h2>
+        <h3 className="text-yellow-600 text-lg">Medium</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+        Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.
+<br /><br />
+Every house can be warmed, as long as the house is within the heater's warm radius range. 
+<br /><br />
+Given the positions of houses and heaters on a horizontal line, return the minimum radius standard of heaters so that those heaters could cover all houses.
+<br /><br />
+Notice that all the heaters follow your radius standard, and the warm radius will the same.
+
+ <br /><br />
+
+Example 1:
+<br />
+Input: houses = [1,2,3], heaters = [2] <br />
+Output: 1 <br />
+Explanation: The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.
+<br /><br />
+Example 2:
+<br />
+Input: houses = [1,2,3,4], heaters = [1,4] <br />
+Output: 1 <br />
+Explanation: The two heaters were placed at positions 1 and 4. We need to use a radius 1 standard, then all the houses can be warmed.
+<br /><br />
+Example 3:
+<br />
+Input: houses = [1,5], heaters = [2] <br />
+Output: 3
+ 
+<br /><br />
+Constraints:
+<br />
+1 {'<'}= houses.length, heaters.length {'<'}= 3 * 104 <br />
+1 {'<'}= houses[i], heaters[i] {'<'}= 109
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`class Solution {
+public:
+    bool isPossible(int mid,vector<int>& houses, vector<int>& heaters){
+        int i=0;
+        int j=0;
+        while(i<houses.size()){
+            if(j<heaters.size()){
+                if(abs(houses[i]-heaters[j])<=mid){
+                    i++;
+                }else{
+                    j++;
+                }
+            }else{
+                return false;
+            }
+        }
+        return true;
+        // while(i<houses.size() && j<heaters.size()){
+        //     if(abs(houses[i]-heaters[j])<=mid){
+        //         i++;
+        //     }else{
+        //         j++;
+        //     }
+        // }
+        // return i==houses.size();
+    }
+    int findRadius(vector<int>& houses, vector<int>& heaters) {
+        int low=0;
+        int high=INT_MAX;
+        int ans=0;
+        vector<int> sortedHeaters=heaters;
+        sort(sortedHeaters.begin(),sortedHeaters.end());
+        sort(houses.begin(),houses.end());
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            if(isPossible(mid,houses,sortedHeaters)){
+                ans=mid;
+                high=mid-1;
+            }else{
+                low=mid+1;
+            }
+        }
+        return ans;
+    }
+};`}
+        </code>
+        </pre>
+      </div>
     </div>
     </section>
   );
