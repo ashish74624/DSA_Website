@@ -765,6 +765,67 @@ public:
         </code>
         </pre>
       </div>
+      {/*  */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 540. Single Element in a Sorted Array</h2>
+        <h3 className="text-yellow-600 text-lg">Medium</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+        You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.
+
+Return the single element that appears only once.
+
+Your solution must run in O(log n) time and O(1) space.
+
+ 
+
+Example 1:
+
+Input: nums = [1,1,2,3,3,4,4,8,8]
+Output: 2
+Example 2:
+
+Input: nums = [3,3,7,7,10,11,11]
+Output: 10
+ 
+
+Constraints:
+
+1 {'<'}= nums.length {'<'}= 105
+0 {'<'}= nums[i] {'<'}= 105
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNonDuplicate = function(nums) {
+    let left = 0;
+    let right = nums.length;
+    
+    while (left < right) {
+        let mid = (left + right) >>> 1;
+        if (mid % 2 !== 0) mid--;
+
+        const value = nums[mid];
+        
+        if (value !== nums[mid + 1] && 
+            value !== nums[mid - 1]) {
+            return value;
+        }
+        
+        if (value === nums[mid - 1]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+};`}
+        </code>
+        </pre>
+      </div>
     </div>
     </section>
   );
