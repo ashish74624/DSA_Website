@@ -771,27 +771,92 @@ public:
         <h3 className="text-yellow-600 text-lg">Medium</h3>
         <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
         You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.
-
+<br/>
 Return the single element that appears only once.
-
+<br/>
 Your solution must run in O(log n) time and O(1) space.
 
+ <br/><br/>
+
+Example 1:<br/>
+
+Input: nums = [1,1,2,3,3,4,4,8,8]<br/>
+Output: 2<br/><br/>
+Example 2:<br/>
+
+Input: nums = [3,3,7,7,10,11,11]<br/>
+Output: 10<br/><br/>
+ 
+
+Constraints:<br/>
+
+1 {'<'}= nums.length {'<'}= 105 <br/>
+0 {'<'}= nums[i] {'<'}= 105 <br/>
+        </p>
+        <h2 className="text-2xl">Solution :</h2>
+        <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
+
+        <code >
+          {`function nextGreatestLetter(letters: string[], target: string): string {
+    let low=0;
+    let high = letters.length-1;
+    let ans:string;
+    while(low<=high){
+        let mid = Math.trunc(low+(high-low)/2);
+        if(letters[mid]>target){
+            ans=letters[mid];
+            high = mid-1;
+        }else{
+            low=mid+1;
+        }
+    }
+
+    if(ans){
+        return ans;
+    }
+    else{
+        return letters[0];
+    }
+};`}
+        </code>
+        </pre>
+      </div>
+      {/* */}
+      <div className="mt-6 space-y-2 border-t-2 border-black pt-6">
+        <h2 className="text-2xl">Leetcode 744. Find Smallest Letter Greater Than Target</h2>
+        <h3 className="text-green-600 text-lg">Easy</h3>
+        <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
+        You are given an array of characters letters that is sorted in non-decreasing order, and a character target. There are at least two different characters in letters.
+<br/>
+Return the smallest character in letters that is lexicographically greater than target. If such a character does not exist, return the first character in letters.
+<br/><br/>
  
 
 Example 1:
+<br/>
+Input: letters = ["c","f","j"], target = "a" <br/>
+Output: "c"<br/>
+Explanation: The smallest character that is lexicographically greater than 'a' in letters is 'c'.
+<br/><br/>
+Example 2:<br/>
 
-Input: nums = [1,1,2,3,3,4,4,8,8]
-Output: 2
-Example 2:
+Input: letters = ["c","f","j"], target = "c"<br/>
+Output: "f"<br/>
+Explanation: The smallest character that is lexicographically greater than 'c' in letters is 'f'.<br/><br/>
+Example 3:<br/>
 
-Input: nums = [3,3,7,7,10,11,11]
-Output: 10
+Input: letters = ["x","x","y","y"], target = "z"<br/>
+Output: "x"<br/>
+Explanation: There are no characters in letters that is lexicographically greater than 'z' so we return letters[0].<br/>
  
+<br/><br/>
+Constraints:<br/>
 
-Constraints:
-
-1 {'<'}= nums.length {'<'}= 105
-0 {'<'}= nums[i] {'<'}= 105
+2 {'<'}= letters.length {'<'}= 104<br/>
+letters[i] is a lowercase English letter.<br/>
+letters is sorted in non-decreasing order.<br/>
+letters contains at least two different characters.<br/>
+target is a lowercase English letter.<br/>
         </p>
         <h2 className="text-2xl">Solution :</h2>
         <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
