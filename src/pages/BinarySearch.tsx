@@ -897,29 +897,56 @@ var singleNonDuplicate = function(nums) {
         <h3 className="text-green-600 text-lg">Easy</h3>
         <p className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl ">
        Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
-
+<br />
 You must write an algorithm with O(log n) runtime complexity.
 
+<br />
+<br />
  
 
 Example 1:
+<br />
 
 Input: nums = [-1,0,3,5,9,12], target = 9
+<br />
+
 Output: 4
+<br />
+
 Explanation: 9 exists in nums and its index is 4
+<br />
+<br />
+
 Example 2:
+<br />
 
 Input: nums = [-1,0,3,5,9,12], target = 2
+<br />
+
 Output: -1
+<br />
+
 Explanation: 2 does not exist in nums so return -1
+<br />
+<br />
  
 
 Constraints:
+<br />
 
 1 {'<'}= nums.length {'<'}= 104
+<br />
+<br />
+
 -104 {'<'} nums[i], target {'<'} 104
+<br />
+
 All the integers in nums are unique.
+<br />
+
 nums is sorted in ascending order.
+<br />
+
         </p>
         <h2 className="text-2xl">Solution :</h2>
         <pre className="bg-gray-900/90 hover:bg-gray-900/100 transition-all duration-300 text-white p-4 rounded-xl overflow-auto ">
